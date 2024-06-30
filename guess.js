@@ -1,29 +1,23 @@
-const prompt = require("prompt-sync")({sigint:true}); 
+// const prompt = require("prompt-sync")({sigint:true}); 
 var number = Math.floor(Math.random() * 100) + 1;
-console.log("This is a guess game written by JavaScript!");
-console.log("Now, let's begin!");
-console.log("You have 7 chances.");
-console.log("The number is between 1 and 100 (include 1 and 100).\n");
+window.alert("This is a guess game written by JavaScript!\nNow, let's begin!\nYou have 7 chances.\nThe number is between 1 and 100 (include 1 and 100).");
 var guessNumber = 0;
 var count = 0;
-while (guessNumber != number && count < 7) {
-    console.log("---------------------------");
+while (count < 7) {
     guessNumber = prompt("Input your guess number:");
-    if (guessNumber > number) 
-        console.log("Your guess number is bigger!!!");
-     else if (guessNumber < number) 
-        console.log("Your guess number is smaller!!!");
-     else 
-        console.log("Your guess number is right!");
     count++;
-    if (count == 7)
-        console.log("You have no chances.\n");
-    else
-        console.log("You still have %d chances.\n", 7 - count);
+    if (guessNumber > number)
+        window.alert(`Your guess number is bigger!!!\nYou still have ${7 - count} chances.`);
+    else if (guessNumber < number)
+        window.alert(`Your guess number is smaller!!!\nYou still have ${7 - count} chances.`);
+    else {
+        window.alert("Your guess number is right!!!");
+        break;
+    }
 }
 if (count <= 3) 
-    console.log("You only guess %d times, god!!!", count);
+    window.alert(`You only guess ${count} times, god!!!`);
 else if (count <= 7 && guessNumber == number) 
-    console.log("You succeed after %d attempts, just so so.", count);
+    window.alert(`You succeed after ${count} attempts, just so so.`);
 else 
-    console.log("You fail it!!!");
+    window.alert("You fail it!!!");
