@@ -6,10 +6,17 @@ function add(param_1: number, param_2: number): number {
 async function minus(param_1: number, param_2: number): Promise<number> {
     return param_1 - param_2
 }
-let a1 = add(1, 2)
-let b1 = minus(3, 4)
-let c1 = await minus(3, 4);
-console.log(a1, b1, c1);
+async function main(): Promise<void> {
+    try {
+        let a1 = add(1, 2)
+        let b1 = minus(3, 4)
+        let c1 = await minus(3, 4);
+        console.log(a1, b1, c1);
+    } catch (err) {
+        console.error(err);
+    }
+}
+main()
 
 const user = {
     name: "Hu Ran",
@@ -46,4 +53,3 @@ export class example {
 }
 let student: example = new example("Hu Ran", 231870261, new Date())
 console.log(student.getName())
-
